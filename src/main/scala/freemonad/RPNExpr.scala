@@ -70,24 +70,4 @@ object RPNExpr {
     }, { _ => stack.headOption.toRightDisjunction("invalid expression") })
     calc(List(), expr)
   }
-
-  // example
-  val expr1: RPN[Unit] = for {
-    _ <- num(8)
-    _ <- num(6)
-    _ <- num(1)
-    _ <- sub
-    _ <- mul
-  } yield ()
-
-  val expr2: RPN[Unit] = for {
-    _ <- num(2)
-    _ <- add
-    _ <- end
-  } yield  ()
-
-  val value: String \/ Double = for {
-    expr <- parse(stringify(expr1 >> expr2))
-    v <- eval(expr)
-  } yield v
 }
