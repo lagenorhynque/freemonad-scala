@@ -30,7 +30,7 @@ object Main {
     _ <- num(2)
     _ <- add
     _ <- end
-  } yield  ()
+  } yield ()
 
   val expr1Str: String = stringify(expr1)
 
